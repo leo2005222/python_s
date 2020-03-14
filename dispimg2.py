@@ -7,9 +7,11 @@ import PIL.ImageTk
 # 이미지 출력 함수
 def disp_img(path):
     newImage = PIL.Image.open(path). resize((200, 200))
+    gImage = PIL.Image.open(path).convert("L").resize((10, 10)).resize((300, 300))
+    mImage = PIL.Image.open(path).resize((10, 10)).resize((250, 250))
 
     # 불러온 이미지를 레이블에 출력하기
-    imageData = PIL.ImageTk.PhotoImage(newImage)
+    imageData = PIL.ImageTk.PhotoImage(gImage)
     imageLabel.configure(image=imageData)
     imageLabel.image = imageData
     flabel.configure(text=path)
